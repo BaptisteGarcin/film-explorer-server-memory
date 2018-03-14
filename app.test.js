@@ -44,5 +44,10 @@ describe('Film Explorer API', () => {
       .expect(newMovie);
   });
 
-  // TODO: Add a test for GET /api/movies/:id
+  test('GET /api/movies/:id should return movie (mostly SuperTest)', () => {
+    return request(app).get('/api/movies/135397')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .expect(movies[135397]);
+  });
 });
